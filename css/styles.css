@@ -170,3 +170,30 @@ body {
 .btn-submit:hover {
   background-color: #45a049;
 }
+
+.container img {
+  max-width: 200px;
+  height: auto;
+}
+
+.testimonial-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial {
+  gap: 10px;
+  border: #403f3d solid 2px;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e1d4c9;
+  font-style: italic;
+  color: #555;
+  max-width: 380px;
+}
