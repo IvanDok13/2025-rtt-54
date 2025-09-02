@@ -11,17 +11,17 @@
     <header>
       <h1 class="main-heading">Final Challenge</h1>
 
-      <nav role="navigation">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+      <nav class="nav" role="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main id="main">
-      <section class="enjoy">
-        <div class="enjoy-wrapper">
+      <section class="hero-section">
+        <div class="hero-wrapper">
           <video
             class="video"
             autoplay=""
@@ -46,50 +46,44 @@
           </div>
         </div>
       </section>
-      <section>
-        <div class="contact-form-section">
-          <form>
-            <h1 class="contact-form-heading">Reach <span>Out</span></h1>
-            <div class="contact-form-intro">
-              Curious about something? Complete these fields and "get in touch",
-              as you humans say. 🤙
-            </div>
-            <label for="name">Full name</label>
-            <input
-              class="contact-input"
-              id="name"
-              type="text"
-              placeholder="Daniel Radcliffe"
-            />
-            <label for="email">Email</label>
-            <input
-              class="contact-input"
-              id="email"
-              type="text"
-              placeholder="da.real.harry@gmail.com"
-            />
-            <label for="message">Message</label>
-            <textarea
-              class="contact-textarea"
-              id="message"
-              rows="4"
-              cols="50"
-              placeholder="Your message..."
-            ></textarea>
-            <button
-              class="contact-submit-button"
-              type="button"
-              onclick="submitForm()"
-            >
-              Send message 🎉
-            </button>
-          </form>
-          <img
-            class="contact-image"
-            src="images/connect.jpg"
-            alt="A robot hand and a human reaching for each other."
+      <section class="contact-section">
+        <form class="form" action="#" method="POST">
+          <h2>Contact Us</h2>
+          <label class="label" for="name">Name:</label>
+          <input
+            class="input"
+            type="text"
+            id="name"
+            name="user_name"
+            required
+            placeholder="Your Name"
           />
-        </div>
+          <label class="label" for="email">Email:</label>
+          <input
+            class="input"
+            type="email"
+            id="email"
+            name="user_email"
+            required
+            placeholder="Your Email"
+          />
+          <label class="label" for="message">Message:</label>
+          <textarea
+            class="input textarea"
+            id="message"
+            name="user_message"
+            required
+            placeholder="Your Message"
+          ></textarea>
+          <button
+            class="btn-submit"
+            type="submit"
+            value="Submit"
+            aria-describedby="submit"
+          >
+            Submit
+          </button>
+        </form>
       </section>
 
       <section class="testimonial-section">
@@ -112,7 +106,7 @@
         </div>
       </section>
     </main>
-    <footer>
+    <footer class="footer">
       <p>&copy; 2025 My Website</p>
     </footer>
   </body>

@@ -21,14 +21,47 @@ body {
     'liga' off;
 }
 
+.main-heading {
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--text-dark, #403f3d);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: var(--background-body, #e7e4e1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item a {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-dark, #403f3d);
+  transition: color 0.3s ease;
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-.enjoy {
-  margin-bottom: 100px;
+.hero-section {
+  margin-bottom: 20px;
 }
 
 .title {
@@ -43,9 +76,9 @@ body {
   color: var(--text-accent, #b0907a);
 }
 
-/* enjoy */
+/* hero */
 
-.enjoy {
+.hero-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,7 +96,7 @@ body {
   pointer-events: none;
 }
 
-.enjoy-wrapper {
+.hero-wrapper {
   display: flex;
   align-items: flex-start;
   padding: 100px;
@@ -196,4 +229,21 @@ body {
   font-style: italic;
   color: #555;
   max-width: 380px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background: var(--background-body, #e7e4e1);
+  border-top: 2px solid var(--text-dark, #403f3d);
+  margin-top: 100px;
+}
+
+.nav-item:focus,
+.input:focus,
+.textarea:focus,
+.btn-submit:focus,
+.btn-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.5);
 }
