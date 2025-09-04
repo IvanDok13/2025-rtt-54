@@ -241,6 +241,14 @@ body {
   height: auto;
 }
 
+.testimonial-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+
 .testimonial {
   gap: 10px;
   border: #403f3d solid 2px;
