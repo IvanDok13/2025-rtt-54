@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <title>Final Challenge</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="main-heading">Final Challenge</h1>
+
+      <nav class="nav" role="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="#">About</a></li>
+          <li class="nav-item"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero-section">
+        <div class="hero-wrapper">
+          <video
+            class="video"
+            autoplay=""
+            preload="auto"
+            loop=""
+            muted=""
+            poster="./assets/img/container.png"
+          >
+            <source src="./assets/video/video.webm" type="video/webm" />
+          </video>
+          <div class="items">
+            <h1 class="title">
+              <span class="title-accent">Enjoy</span>
+              premium coffee at our charming cafe
+            </h1>
+            <p class="text">
+              With its inviting atmosphere and delicious coffee options, the
+              Coffee House Resource is a popular destination for coffee lovers
+              and those seeking a warm and inviting space to enjoy their
+              favorite beverage.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="contact-section">
+        <form class="form" action="#" method="POST">
+          <h2>Contact Us</h2>
+          <label class="label" for="name">Name:</label>
+          <input
+            class="input"
+            type="text"
+            id="name"
+            name="user_name"
+            required
+            placeholder="Your Name"
+          />
+          <label class="label" for="email">Email:</label>
+          <input
+            class="input"
+            type="email"
+            id="email"
+            name="user_email"
+            required
+            placeholder="Your Email"
+          />
+          <label class="label" for="message">Message:</label>
+          <textarea
+            class="input textarea"
+            id="message"
+            name="user_message"
+            required
+            placeholder="Your Message"
+          ></textarea>
+          <button
+            class="btn-submit"
+            type="submit"
+            value="Submit"
+            aria-describedby="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+
+      <section class="testimonial-section">
+        <div class="testimonial">
+          <img
+            src="https://www.svgwaves.io/cutfiles/freeimages_people_silhouette_clipart_png_clean_flat_black_des_95b8968a-2f3f-4590-be61-aff3598bf948_1.svg"
+            alt="Avatar"
+          />
+          <p>John Doe</p>
+          <p>I love this coffee shop</p>
+        </div>
+
+        <div class="testimonial">
+          <img
+            src="https://www.svgwaves.io/cutfiles/freeimages_people_silhouette_clipart_png_clean_flat_black_des_084b455f-3b62-4d13-b734-1e2774cad007_3.svg"
+            alt="Avatar"
+          />
+          <p>Ramona Sill</p>
+          <p>It was the best Coffee I have ever had.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 My Website</p>
+    </footer>
+  </body>
+</html>
