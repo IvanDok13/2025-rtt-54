@@ -21,6 +21,15 @@ body {
     'liga' off;
 }
 
+.section-title {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .logo {
   font-size: large;
   display: flex;
@@ -86,10 +95,6 @@ body {
   padding: 0 40px;
 }
 
-.hero-section {
-  margin-bottom: 20px;
-}
-
 .title {
   font-size: 60px;
   font-style: normal;
@@ -104,11 +109,12 @@ body {
 
 /* hero */
 
-.hero-section {
+.section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 40px;
+  margin-bottom: 20px;
 }
 
 .video {
@@ -233,12 +239,6 @@ body {
 .container img {
   max-width: 200px;
   height: auto;
-}
-
-.testimonial-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .testimonial {
