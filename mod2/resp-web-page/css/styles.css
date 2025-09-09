@@ -30,6 +30,15 @@ body {
   margin-bottom: 40px;
 }
 
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+/* header */
 .logo {
   font-size: large;
   display: flex;
@@ -85,33 +94,7 @@ body {
   transition: color 0.3s ease;
 }
 
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.title {
-  font-size: 60px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 125%;
-}
-
-.title-accent {
-  font-style: italic;
-  color: var(--text-accent, #b0907a);
-}
-
 /* hero */
-
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 40px;
-  margin-bottom: 20px;
-}
 
 .video {
   position: absolute;
