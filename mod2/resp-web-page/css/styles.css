@@ -256,10 +256,6 @@ body {
   font-size: 16px;
 }
 
-.btn-submit:hover {
-  background-color: #45a049;
-}
-
 .testimonial img {
   max-width: 200px;
   height: auto;
@@ -315,4 +311,37 @@ body {
 .logo:hover {
   color: var(--text-accent, #b0907a);
   cursor: pointer;
+}
+
+/* media */
+
+@media screen and (max-width: 768px) {
+  .hero-wrapper {
+    padding: 25px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .items {
+    width: 100%;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .img-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
 }
