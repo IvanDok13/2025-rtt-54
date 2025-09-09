@@ -190,7 +190,7 @@ body {
   min-height: 100px;
 }
 
-.btn-submit {
+.btn {
   background-color: #4caf50;
   color: white;
   padding: 12px 20px;
@@ -200,7 +200,11 @@ body {
   font-size: 16px;
 }
 
-.btn-submit:hover {
+.see-all {
+  max-width: 300px;
+}
+
+.btn:hover {
   background-color: #45a049;
 }
 
@@ -209,10 +213,16 @@ body {
   height: auto;
 }
 
-.testimonial-section {
+.testimonial-section,
+.testimonials {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.testimonial-section {
+  flex-direction: column;
 }
 
 .testimonial {
@@ -236,13 +246,13 @@ body {
   padding: 20px 0;
   background: var(--background-body, #e7e4e1);
   border-top: 2px solid var(--text-dark, #403f3d);
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
 .nav-item:focus,
 .input:focus,
 .textarea:focus,
-.btn-submit:focus,
+.btn:focus,
 .btn-link:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.5);
