@@ -3,3 +3,5 @@
 2. ARIA attributes provide additional roles, states, and properties to elements, allowing screen readers to interpret and communicate functionality that standard HTML alone cannot.
 
 3. Color contrast tools – Tools like WAVE, Axe, and Contrast Checker identified low-contrast text and backgrounds, helping adjust colors to meet WCAG standards for readability.
+
+### You can run my project with Live server
