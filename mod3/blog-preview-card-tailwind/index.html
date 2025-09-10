@@ -3,45 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/normalize.css" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Frontend Mentor | Blog preview card</title>
   </head>
-  <body>
-    <main class="main">
-      <div class="wrapper">
-        <div class="card">
-          <div class="image-block">
-            <img
-              class="img"
-              src="./assets/images/illustration-article.svg"
-              alt="QR Code"
-            />
-          </div>
-          <div class="text-block">
-            <button class="btn">Learning</button>
-            <p class="date">Published 21 Dec 2023</p>
-            <h1 class="title">HTML & CSS foundations</h1>
-            <p class="text">
-              These languages are the backbone of every website, defining
-              structure, content, and presentation.
-            </p>
-            <div class="author-info">
-              <div class="author-img">
-                <img
-                  src="./assets/images/image-avatar.webp"
-                  alt="Author image"
-                />
-              </div>
-              <h3 class="author-name">Greg Hooper</h3>
-            </div>
-          </div>
+  <body class="flex items-center justify-center min-h-screen bg-yellow-400 p-5">
+    <main
+      class="bg-white border-black shadow-[8px_8px_0px_black] rounded-2xl max-w-sm p-6"
+    >
+      <div class="mb-6">
+        <img
+          class="img rounded-lg w-full h-48 object-cover"
+          src="./assets/images/illustration-article.svg"
+          alt="QR Code"
+        />
+      </div>
+      <div class="flex flex-col items-start gap-3">
+        <button class="btn bg-yellow-400 px-3 py-1 rounded font-extrabold">
+          Learning
+        </button>
+        <p class="date text-sm">Published 21 Dec 2023</p>
+        <h1
+          class="title text-2xl font-extrabold text-black hover:text-yellow-400 cursor-pointer"
+        >
+          HTML & CSS foundations
+        </h1>
+        <p class="text text-base text-gray-600">
+          These languages are the backbone of every website, defining structure,
+          content, and presentation.
+        </p>
+        <div class="flex items-center gap-3 mt-3">
+          <img
+            src="./assets/images/image-avatar.webp"
+            alt="Author image"
+            class="w-8 h-8 rounded-full"
+          />
+          <h3 class="font-extrabold text-black">Greg Hooper</h3>
         </div>
       </div>
     </main>
