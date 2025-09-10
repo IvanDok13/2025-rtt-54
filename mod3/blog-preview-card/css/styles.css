@@ -16,6 +16,7 @@ body,
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 body {
@@ -90,6 +91,13 @@ body {
 
 .title {
   font-size: 24px;
+}
+
+.title:hover,
+.title:focus,
+.title:active {
+  color: hsl(47, 88%, 63%);
+  cursor: pointer;
 }
 
 .text {
