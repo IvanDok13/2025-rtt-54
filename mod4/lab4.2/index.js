@@ -50,3 +50,20 @@ function filterItems(searchTerm) {
 
 console.log(filterItems('banana')); // ["banana", "apple", "orange"]
 console.log(filterItems('grape')); // ["banana", "apple", "orange", "grape"]
+
+// Task 3: Render the List in the Browser
+
+const ul = document.getElementsByClassName('list');
+const input = document.getElementById('input');
+const addBtn = document.getElementById('add');
+const removeBtn = document.getElementById('remove');
+
+function renderList() {
+  if (input.value !== '') {
+    addItem(input.value);
+  }
+  const li = document.createElement('li');
+  li.className = 'item';
+  li;
+  ul.appendChild(li);
+}
