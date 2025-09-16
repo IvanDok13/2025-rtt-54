@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@100..900&display=swap');
+
+body {
+  transition: all 0.3s ease;
+  font-family: 'Figtree', sans-serif;
+}
+
+@media screen and (max-width: 376px) {
+  main {
+    width: 327px;
+    height: 501px;
+  }
+
+  .img {
+    height: 200px;
+  }
+
+  .btn,
+  .date {
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 150%;
+  }
+}
