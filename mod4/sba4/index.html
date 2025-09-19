@@ -5,5 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task Management App</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <section class="input-block" aria-label="Create a task">
+        <div>
+          <label for="taskName">Task name:</label>
+          ><input
+            id="taskName"
+            type="text"
+            placeholder="Create about section..."
+          />
+        </div>
+
+        <div>
+          <label for="taskCategory">Category</label>
+          <input
+            id="taskCategory"
+            type="text"
+            list="categoryList"
+            placeholder="Home, Work, Personal..."
+          />
+        </div>
+
+        <div>
+          <label for="taskDeadline">Deadline</label>
+          <input id="taskDeadline" type="date" />
+        </div>
+
+        <div>
+          <label for="taskStatus">Status</label>
+          <select name="select" id="taskStatus">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div>
+          <button>Add new task</button>
+        </div>
+
+        <div>
+          <span>Filter by:</span>
+          <select class="filters" id="filters">
+            <option value="all">All</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </section>
+
+      <section id="taskList">
+        <div id="emptyState">
+          <div>No tasks yet</div>
+          <div>Add your first task using the form above.</div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
