@@ -42,20 +42,20 @@
       >
         <div class="input-block p-4 flex flex-wrap gap-4">
           <div class="mb-4 flex flex-col gap-1">
-            <label for="taskName">Task name:</label>
+            <label for="task-name">Task name:</label>
             <input
               class="border border-gray-300 rounded-md p-2"
-              id="taskName"
+              id="task-name"
               type="text"
               placeholder="Create about section..."
             />
           </div>
 
           <div class="mb-4 flex flex-col gap-1">
-            <label for="taskCategory">Category</label>
+            <label for="category">Category</label>
             <input
               class="border border-gray-300 rounded-md p-2"
-              id="taskCategory"
+              id="category"
               type="text"
               list="categoryList"
               placeholder="Home, Work, Personal..."
@@ -63,20 +63,20 @@
           </div>
 
           <div class="mb-4 flex flex-col gap-1">
-            <label for="taskDeadline">Deadline</label>
+            <label for="deadline">Deadline</label>
             <input
               class="border border-gray-300 rounded-md p-2"
-              id="taskDeadline"
+              id="deadline"
               type="date"
             />
           </div>
 
           <div class="mb-4 flex flex-col gap-1">
-            <label for="taskStatus">Status</label>
+            <label for="status">Status</label>
             <select
               class="border border-gray-300 rounded-md p-2"
               name="select"
-              id="taskStatus"
+              id="status"
             >
               <option value="Pending">Pending</option>
               <option value="In Progress">In Progress</option>
@@ -86,6 +86,7 @@
 
           <div class="flex items-end mb-4">
             <button
+              id="addTaskBtn"
               class="cursor-pointer py-3 px-4 rounded-xl text-white bg-gradient-to-br from-[#78e23b] to-[#22d3ee] transition-transform duration-75 ease-linear shadow-[0_10px_24px_rgba(124,58,237,0.35)] whitespace-nowrap active:translate-y-px"
             >
               Add new task
@@ -108,7 +109,7 @@
       </section>
       <section
         class="mt-[18px] grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-[14px]"
-        id="taskList"
+        id="taskListSection"
       ></section>
       <section id="emptyInfo">
         <div
