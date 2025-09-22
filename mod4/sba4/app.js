@@ -42,3 +42,12 @@ function addTask() {
   emptyInfo.style.display = 'none';
   displayTasks();
 }
+
+function toast(message) {
+  const toastEl = document.getElementById('toast');
+  toastEl.textContent = message;
+  toastEl.classList.add('opacity-100');
+  setTimeout(() => {
+    toastEl.classList.remove('opacity-100');
+  }, 3000);
+}
