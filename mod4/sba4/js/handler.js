@@ -17,6 +17,21 @@ export function addTask() {
   const newTask = { taskName, category, deadline, status };
   tasks.push(newTask);
   renderTasks();
-
+  toast('Task added');
   els.taskNameInput.value = '';
+}
+
+export function removeTask(e) {
+  const delBtn = e.target.closest('.delete-btn');
+  if (!delBtn) return;
+
+  const li = delBtn.closest('li');
+  if (!li) return;
+
+  const index = Number(li.dataset.index);
+  if (Number.isNaN(index)) return;
+
+  tasks.splice(index, 1);
+  renderTasks();
+  toast('Task removed');
 }
