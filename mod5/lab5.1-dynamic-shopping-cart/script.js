@@ -39,4 +39,12 @@ function renderList() {
   }
 }
 
+cart.onclick = function (event) {
+  let target = event.target;
+  console.log(target.tagName);
+  if (target.tagName !== 'BUTTON') return;
+
+  removeItem(event);
+};
+
 addProductButton.addEventListener('click', renderList);
