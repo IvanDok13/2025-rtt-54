@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Task Management App</title>
+  </head>
+  <body
+    class="h-full p-2 text-[#1b1d23] bg-[radial-gradient(1200px_600px_at_10%_-20%,rgba(124,58,237,0.18),transparent),radial-gradient(900px_500px_at_110%_10%,rgba(34,211,238,0.12),transparent)"
+  >
+    <header class="flex items-center gap-4 p-2 border-b border-gray-300 mb-4">
+      <div
+        class="w-10 h-10 rounded-xl bg-[url(./assets/favicon/favicon.ico)] bg-cover bg-center"
+        aria-hidden="true"
+      ></div>
+      <h1 class="font-bold">Task Management App</h1>
+    </header>
+    <main>
+      <section
+        class="input-block p-4 flex flex-col flex-wrap gap-4 border border-[#2a2f3a] rounded-[16px] shadow-[0_10px_30px_rgba(0,0,0,0.35)] p-[18px]"
+        aria-label="Create a task"
+      >
+        <div class="input-block p-4 flex flex-wrap gap-4">
+          <div class="mb-4 flex flex-col gap-1">
+            <label for="task-name">Task name:</label>
+            <input
+              class="border border-gray-300 rounded-md p-2"
+              id="task-name"
+              type="text"
+              placeholder="Create about section..."
+            />
+          </div>
+
+          <div class="mb-4 flex flex-col gap-1">
+            <label for="category">Category</label>
+            <input
+              class="border border-gray-300 rounded-md p-2"
+              id="category"
+              type="text"
+              list="categoryList"
+              placeholder="Home, Work, Personal..."
+            />
+          </div>
+
+          <div class="mb-4 flex flex-col gap-1">
+            <label for="deadline">Deadline</label>
+            <input
+              class="border border-gray-300 rounded-md p-2"
+              id="deadline"
+              type="date"
+            />
+          </div>
+
+          <div class="mb-4 flex flex-col gap-1">
+            <label for="status">Status</label>
+            <select
+              class="border border-gray-300 rounded-md p-2"
+              name="select"
+              id="status"
+            >
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+
+          <div class="flex items-end mb-4">
+            <button
+              id="addTaskBtn"
+              class="cursor-pointer py-3 px-4 rounded-xl text-white bg-gradient-to-br from-[#78e23b] to-[#22d3ee] transition-transform duration-75 ease-linear shadow-[0_10px_24px_rgba(124,58,237,0.35)] whitespace-nowrap active:translate-y-px"
+            >
+              Add new task
+            </button>
+          </div>
+        </div>
+        <div>
+          <span>Filter by:</span>
+          <select
+            class="border border-gray-300 rounded-md p-2"
+            class="filters"
+            id="filters"
+          >
+            <option value="all">All</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </section>
+      <section id="taskListSection"></section>
+      <section id="emptyInfo">
+        <div
+          class="text-center my-10 mx-auto p-10 border border-dashed border-[#2a2f3a] rounded-[20px]"
+          id="emptyState"
+        >
+          <div class="text-[40px] mb-[6px]">🗂️</div>
+          <div class="font-semibold mb-1">No tasks yet</div>
+          <div>Add your first task using the form above.</div>
+        </div>
+      </section>
+      <div
+        class="toast fixed top-5 left-1/2 -translate-x-1/2 bg-[#171a22] border border-[#2a2f3a] text-[#e7eaf3] py-3 px-4 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] opacity-0 pointer-events-none transition-all duration-300 ease-linear"
+        id="toast"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
