@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Real-time validation: Add input event listeners to each field.
 
-usernameInput.addEventListener('input', function (event) {});
+usernameInput.addEventListener('input', validateUsername);
 
 emailInput.addEventListener('input', function (event) {});
 
@@ -29,11 +29,27 @@ passwordInput.addEventListener('input', function (event) {});
 confirmPasswordEl.addEventListener('input', function (event) {});
 
 // Check validity using the Constraint Validation API (inputElement.validity).
-// For the “Confirm Password” field, explicitly check if it matches the “Password” field.
 // Display appropriate custom error messages in the corresponding <span> elements. Clear messages if valid.
+
+function validateUsername() {
+  if (usernameInput.validity.valueMissing) {
+    usernameInput.setCustomValidity('Username is required.');
+  } else if (usernameInput.validity.tooShort) {
+    usernameInput.setCustomValidity(
+      `Username must be at least ${usernameInput.minLength} characters; you entered ${usernameInput.value.length}.`
+    );
+  } else {
+    usernameInput.setCustomValidity('');
+  }
+  usernameErrorEl.textContent = usernameInput.validationMessage;
+}
+
+// For the “Confirm Password” field, explicitly check if it matches the “Password” field.
+
 // Form submission: Add a submit event listener to the form.
 // Call event.preventDefault().
 // Perform a final validation check on all fields.
+
 // If all fields are valid:
 // Display a success message (e.g., an alert or update a status message on the page).
 // Save the username to localStorage.
