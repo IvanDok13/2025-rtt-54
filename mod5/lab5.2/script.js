@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Real-time validation: Add input event listeners to each field.
+
+usernameInput.addEventListener('input', function (event) {});
+
+emailInput.addEventListener('input', function (event) {});
+
+passwordInput.addEventListener('input', function (event) {});
+
+confirmPasswordEl.addEventListener('input', function (event) {});
+
 // Check validity using the Constraint Validation API (inputElement.validity).
 // For the “Confirm Password” field, explicitly check if it matches the “Password” field.
 // Display appropriate custom error messages in the corresponding <span> elements. Clear messages if valid.
