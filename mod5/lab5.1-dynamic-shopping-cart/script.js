@@ -20,6 +20,12 @@ function removeItem(event) {
   item.remove();
 }
 
+function validatePriceInput() {
+  const price = productPriceInput.value.trim();
+  const pattern = /^\d{0,4}(\.\d{0,2})?$/;
+  return pattern.test(price);
+}
+
 function renderList() {
   if (productNameInput.value.trim() !== '') {
     const li = document.createElement('div');
@@ -28,17 +34,21 @@ function renderList() {
     const nameDiv = document.createElement('div');
 
     const ammount = +productPriceInput.value;
-    li.dataset.price = ammount;
-    li.className = 'cart-item';
-    priceDiv.textContent = ammount;
-    btn.textContent = 'Remove';
-    nameDiv.textContent = productNameInput.value;
+    if (validatePriceInput()) {
+      li.dataset.price = ammount;
+      li.className = 'cart-item';
+      priceDiv.textContent = ammount;
+      btn.textContent = 'Remove';
+      nameDiv.textContent = productNameInput.value;
 
-    cart.appendChild(li);
-    li.appendChild(nameDiv);
-    li.appendChild(priceDiv);
-    li.appendChild(btn);
-    updateTotalPrice(ammount);
+      cart.appendChild(li);
+      li.appendChild(nameDiv);
+      li.appendChild(priceDiv);
+      li.appendChild(btn);
+      updateTotalPrice(ammount);
+    } else {
+      alert('Please enter a valid price.');
+    }
   }
 }
 
@@ -53,4 +63,12 @@ addProductButton.addEventListener('click', function () {
   renderList();
   productNameInput.value = '';
   productPriceInput.value = '';
+});
+
+productPriceInput.addEventListener('input', function () {
+  if (!validatePriceInput()) {
+    productPriceInput.setCustomValidity('Invalid price format.');
+  } else {
+    productPriceInput.setCustomValidity('');
+  }
 });
