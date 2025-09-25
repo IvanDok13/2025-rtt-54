@@ -24,16 +24,19 @@ function renderList() {
   if (productNameInput.value.trim() !== '') {
     const li = document.createElement('div');
     const btn = document.createElement('button');
-    const priceSpan = document.createElement('span');
+    const priceDiv = document.createElement('div');
+    const nameDiv = document.createElement('div');
 
     const ammount = +productPriceInput.value;
     li.dataset.price = ammount;
-    priceSpan.textContent = ammount;
+    li.className = 'cart-item';
+    priceDiv.textContent = ammount;
     btn.textContent = 'Remove';
-    li.textContent = productNameInput.value;
+    nameDiv.textContent = productNameInput.value;
 
     cart.appendChild(li);
-    li.appendChild(priceSpan);
+    li.appendChild(nameDiv);
+    li.appendChild(priceDiv);
     li.appendChild(btn);
     updateTotalPrice(ammount);
   }
@@ -41,10 +44,13 @@ function renderList() {
 
 cart.onclick = function (event) {
   let target = event.target;
-  console.log(target.tagName);
   if (target.tagName !== 'BUTTON') return;
 
   removeItem(event);
 };
 
-addProductButton.addEventListener('click', renderList);
+addProductButton.addEventListener('click', function () {
+  renderList();
+  productNameInput.value = '';
+  productPriceInput.value = '';
+});

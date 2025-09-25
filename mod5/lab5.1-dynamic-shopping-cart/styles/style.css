@@ -36,10 +36,11 @@ body {
   margin-bottom: 10px;
 }
 
-.cart-item span {
+.cart-item div {
   flex: 1;
 }
 
 .cart-item button {
+  flex: 1;
   margin-left: 10px;
 }
