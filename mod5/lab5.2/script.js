@@ -11,6 +11,13 @@ const confirmPasswordErrorEl = document.getElementById('confirmPasswordError');
 
 // Load saved username: On page load, check if a username is saved in localStorage. If so, pre-fill the username field.
 
+document.addEventListener('DOMContentLoaded', () => {
+  const savedUsername = localStorage.getItem('savedUsername');
+  if (savedUsername) {
+    usernameInput.value = savedUsername;
+  }
+});
+
 // Real-time validation: Add input event listeners to each field.
 // Check validity using the Constraint Validation API (inputElement.validity).
 // For the “Confirm Password” field, explicitly check if it matches the “Password” field.
