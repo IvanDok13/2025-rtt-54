@@ -24,7 +24,7 @@ usernameInput.addEventListener('input', validateUsername);
 
 emailInput.addEventListener('input', validateEmail);
 
-passwordInput.addEventListener('input', function (event) {});
+passwordInput.addEventListener('input', validatePassword);
 
 confirmPasswordEl.addEventListener('input', function (event) {});
 
@@ -56,6 +56,23 @@ function validateEmail() {
     emailInput.setCustomValidity('');
   }
   emailErrorEl.textContent = emailInput.validationMessage;
+}
+
+function validatePassword() {
+  if (passwordInput.validity.valueMissing) {
+    passwordInput.setCustomValidity('Password is required.');
+  } else if (passwordInput.validity.patternMismatch) {
+    passwordInput.setCustomValidity(
+      'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one number, and one special character (@$!%*?&).'
+    );
+  } else if (passwordInput.validity.tooShort) {
+    passwordInput.setCustomValidity(
+      'Password must be at least 8 characters long.'
+    );
+  } else {
+    passwordInput.setCustomValidity('');
+  }
+  passwordErrorEl.textContent = passwordInput.validationMessage;
 }
 
 // For the “Confirm Password” field, explicitly check if it matches the “Password” field.
