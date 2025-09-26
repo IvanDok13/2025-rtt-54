@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 usernameInput.addEventListener('input', validateUsername);
 
-emailInput.addEventListener('input', function (event) {});
+emailInput.addEventListener('input', validateEmail);
 
 passwordInput.addEventListener('input', function (event) {});
 
@@ -42,6 +42,20 @@ function validateUsername() {
     usernameInput.setCustomValidity('');
   }
   usernameErrorEl.textContent = usernameInput.validationMessage;
+}
+
+function validateEmail() {
+  if (emailInput.validity.valueMissing) {
+    emailInput.setCustomValidity('Email is required.');
+  } else if (
+    emailInput.validity.patternMismatch ||
+    emailInput.validity.typeMismatch
+  ) {
+    emailInput.setCustomValidity('Please enter a valid email address.');
+  } else {
+    emailInput.setCustomValidity('');
+  }
+  emailErrorEl.textContent = emailInput.validationMessage;
 }
 
 // For the “Confirm Password” field, explicitly check if it matches the “Password” field.
