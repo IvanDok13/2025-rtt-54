@@ -26,7 +26,7 @@ emailInput.addEventListener('input', validateEmail);
 
 passwordInput.addEventListener('input', validatePassword);
 
-confirmPasswordEl.addEventListener('input', function (event) {});
+confirmPasswordEl.addEventListener('input', validateConfirmPassword);
 
 // Check validity using the Constraint Validation API (inputElement.validity).
 // Display appropriate custom error messages in the corresponding <span> elements. Clear messages if valid.
@@ -76,6 +76,17 @@ function validatePassword() {
 }
 
 // For the “Confirm Password” field, explicitly check if it matches the “Password” field.
+
+function validateConfirmPassword() {
+  if (confirmPasswordEl.validity.valueMissing) {
+    confirmPasswordEl.setCustomValidity('Please confirm your password.');
+  } else if (confirmPasswordEl.value !== passwordInput.value) {
+    confirmPasswordEl.setCustomValidity('Passwords do not match.');
+  } else {
+    confirmPasswordEl.setCustomValidity('');
+  }
+  confirmPasswordErrorEl.textContent = confirmPasswordEl.validationMessage;
+}
 
 // Form submission: Add a submit event listener to the form.
 // Call event.preventDefault().
