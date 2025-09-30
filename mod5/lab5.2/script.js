@@ -92,8 +92,50 @@ function validateConfirmPassword() {
 // Call event.preventDefault().
 // Perform a final validation check on all fields.
 
-// If all fields are valid:
-// Display a success message (e.g., an alert or update a status message on the page).
-// Save the username to localStorage.
-// Optionally, reset the form.
-// If any field is invalid, ensure error messages are displayed and focus on the first invalid field.
+registrationformEl.addEventListener('submit', event => {
+  event.preventDefault();
+  validateUsername();
+  validateEmail();
+  validatePassword();
+  validateConfirmPassword();
+
+  // If all fields are valid:
+  // Display a success message (e.g., an alert or update a status message on the page).
+  const isUsernameValid = usernameInput.validity.valid;
+  const isEmailValid = emailInput.validity.valid;
+  const isPasswordValid = passwordInput.validity.valid;
+  const isConfirmPasswordValid = confirmPasswordEl.validity.valid;
+
+  if (
+    isUsernameValid &&
+    isEmailValid &&
+    isPasswordValid &&
+    isConfirmPasswordValid
+  ) {
+    // Save the username to localStorage.
+    localStorage.setItem('savedUsername', usernameInput.value);
+
+    alert('Registration successful! Form data would be submitted.');
+
+    // Optionally, reset the form.
+    registrationformEl.reset();
+    // Clear all error messages.
+    usernameErrorEl.textContent = '';
+    emailErrorEl.textContent = '';
+    passwordErrorEl.textContent = '';
+    confirmPasswordErrorEl.textContent = '';
+    // If any field is invalid, ensure error messages are displayed and focus on the first invalid field
+  } else {
+    if (!isUsernameValid) {
+      usernameInput.focus();
+    } else if (!isEmailValid) {
+      emailInput.focus();
+    } else if (!isPasswordValid) {
+      passwordInput.focus();
+    } else if (!isConfirmPasswordValid) {
+      confirmPasswordEl.focus();
+    }
+
+    alert('Please fix the errors in the form before submitting.');
+  }
+});
