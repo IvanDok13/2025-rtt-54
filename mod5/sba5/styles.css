@@ -70,7 +70,7 @@ body {
 }
 
 .title-input,
-.textarea-input {
+.content-input {
   width: 100%;
   padding: 12px 15px;
   border: 2px solid #e1e5e9;
@@ -81,14 +81,14 @@ body {
 }
 
 .title-input:focus,
-.textarea-input:focus {
+.content-input:focus {
   outline: none;
   border-color: #667eea;
   background-color: white;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.textarea-input {
+.content-input {
   resize: vertical;
   min-height: 120px;
 }
@@ -110,7 +110,7 @@ body {
 }
 
 .title-input.error,
-.textarea-input.error {
+.content-input.error {
   border-color: #dc3545;
   background-color: #fff5f5;
 }
