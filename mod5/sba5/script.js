@@ -80,3 +80,24 @@ function createNewPost(title, content) {
 function savePostsToLocalStorage() {
   localStorage.setItem('savedPosts', JSON.stringify(postsState));
 }
+
+// Handle New Post Form Submission
+
+postForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const title = titleInput.value;
+  const content = contentInput.value;
+
+  if (!title.trim() || !content.trim()) {
+    alert('Please fill in both title and content');
+    return;
+  }
+
+  createNewPost(title, content);
+
+  titleInput.value = '';
+  contentInput.value = '';
+
+  alert('Post created successfully!');
+});
