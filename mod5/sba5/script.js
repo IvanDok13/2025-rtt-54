@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     postsState.length = 0;
     postsState.push(...parsedPosts);
     renderPosts();
-    // updateCharCount();
   }
 });
 
@@ -45,6 +44,7 @@ function createPostElement(post, index) {
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'delete-btn';
   deleteBtn.textContent = 'Delete';
+  deleteBtn.type = 'button';
 
   postDiv.appendChild(postHeader);
   postDiv.appendChild(postText);
@@ -100,4 +100,17 @@ postForm.addEventListener('submit', event => {
   contentInput.value = '';
 
   alert('Post created successfully!');
+});
+
+// Delete Post
+
+postsContainer.addEventListener('click', event => {
+  if (event.target.classList.contains('delete-btn')) {
+    const postContainer = event.target.closest('.posts-container');
+    const postIndex = parseInt(postContainer.dataset.index, 10);
+
+    postsState.splice(postIndex, 1);
+    savePostsToLocalStorage();
+    renderPosts();
+  }
 });
