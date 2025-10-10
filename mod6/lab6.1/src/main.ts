@@ -14,4 +14,5 @@ products.forEach(product => {
 const productWithDiscount = new PhysicalProduct('s-asd-001', 'Mouse', 1200, 2);
 productWithDiscount.applyDiscount(33);
 
-// Add a new feature to the inventory system: bulk discounts for physical products over a certain quantity or size.
+const bulkProduct = new PhysicalProduct('s-asd-002', 'Keyboard', 1500, 3, 25);
+bulkProduct.applyDiscount(20);

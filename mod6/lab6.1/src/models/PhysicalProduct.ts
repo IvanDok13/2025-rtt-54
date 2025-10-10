@@ -6,8 +6,14 @@ interface DiscountableProduct {
 
 export class PhysicalProduct extends Product implements DiscountableProduct {
   weight: number;
-  constructor(sku: string, name: string, price: number, weight: number) {
-    super(sku, name, price);
+  constructor(
+    sku: string,
+    name: string,
+    price: number,
+    weight: number,
+    quantity?: number
+  ) {
+    super(sku, name, price, quantity);
     this.weight = weight;
   }
   getPriceWithTax() {
@@ -18,6 +24,13 @@ export class PhysicalProduct extends Product implements DiscountableProduct {
   }
 
   applyDiscount(percentDiscount: number): void {
-    console.log((this.price *= percentDiscount / 100));
+    if (this.quantity > 10) {
+      const extraDiscount = 0.1;
+      console.log(
+        `The full price is ${this.price}. You get ${extraDiscount * 100}% discount for ${this.quantity} bulk  purchase! The new price for one product is: ${(this.price -= this.price * extraDiscount)}`
+      );
+    } else {
+      console.log((this.price *= percentDiscount / 100));
+    }
   }
 }
