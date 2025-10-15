@@ -1,7 +1,9 @@
 1. Task: [link](https://github.com/)
 2. Screenshot:
-3. Deploy: [link](https://github.com/)
-4. Done 28.05.2020 / deadline 31.05.2020
-5. Score: 75 / 110
+3. Deploy: [Deploy](https://ivandok13.github.io/2025-rtt-54/mod5/sba5)
+4. Done 15.10.2025 / deadline 15.10.2025
+5. Score: 30 / 30
 
 - [x]
+
+PR name example ----Mod5/sba5
