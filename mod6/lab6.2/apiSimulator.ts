@@ -16,25 +16,25 @@ export const fetchProductCatalog = (): Promise<
 };
 
 export const fetchProductReviews = (
-  productId: number
-): Promise<{ productId: number; content: string }[]> => {
+  id: number
+): Promise<{ id: number; content: string }[]> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.9) {
         resolve([
           {
-            productId: 1,
+            id: 1,
             content:
               'jweahjfijefpoakwf;oakefkaw;efkalewfja;lwfjaw;ofjk[wajfo;awijfoaw;ejfk;oawkf',
           },
           {
-            productId: 2,
+            id: 2,
             content:
               'awioehfpwaowpeihfaopwhfpoaiwefaew;hf;aiowhefoaw;hfawhifwaihfoiwahefaweifhawoiefhowaef',
           },
         ]);
       } else {
-        reject(`Failed to fetch reviews for product ID ${productId}`);
+        reject(`Failed to fetch reviews for product ID ${id}`);
       }
     }, 1500);
   });
