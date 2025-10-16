@@ -39,3 +39,23 @@ export const fetchProductReviews = (
     }, 1500);
   });
 };
+
+export const fetchSalesReport = (): Promise<{
+  totalSales: number;
+  unitsSold: number;
+  averagePrice: number;
+}> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() < 0.85) {
+        resolve({
+          totalSales: 50000,
+          unitsSold: 150,
+          averagePrice: 333.33,
+        });
+      } else {
+        reject('Failed to fetch sales report');
+      }
+    }, 1000);
+  });
+};
