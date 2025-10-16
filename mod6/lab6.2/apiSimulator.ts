@@ -14,3 +14,28 @@ export const fetchProductCatalog = (): Promise<
     }, 1000);
   });
 };
+
+export const fetchProductReviews = (
+  productId: number
+): Promise<{ productId: number; content: string }[]> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() < 0.9) {
+        resolve([
+          {
+            productId: 1,
+            content:
+              'jweahjfijefpoakwf;oakefkaw;efkalewfja;lwfjaw;ofjk[wajfo;awijfoaw;ejfk;oawkf',
+          },
+          {
+            productId: 2,
+            content:
+              'awioehfpwaowpeihfaopwhfpoaiwefaew;hf;aiowhefoaw;hfawhifwaihfoiwahefaweifhawoiefhowaef',
+          },
+        ]);
+      } else {
+        reject(`Failed to fetch reviews for product ID ${productId}`);
+      }
+    }, 1500);
+  });
+};
