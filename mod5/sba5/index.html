@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Personal Blog</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>My Personal Blog</h1>
+      <p>Share your thoughts and ideas</p>
+    </header>
+    <main>
+      <!-- 1) Create a section for the new post form (including input for title, textarea for content, and a submit button). 
+          2) Ensure you have elements (e.g., <span>) near your form inputs to display validation error messages.-->
+      <section class="post-form-section" id="post-form-section">
+        <h2>Create a New Blog Post</h2>
+        <form id="post-form" class="post-form">
+          <div class="form-group">
+            <label class="label" for="title">Title:</label>
+            <input
+              class="title-input"
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Enter post title..."
+              minlength="5"
+              maxlength="100"
+              required
+            />
+            <span id="title-error" class="error-message"></span>
+          </div>
+          <div class="form-group">
+            <label class="label" for="content">Content:</label>
+            <textarea
+              class="content-input"
+              id="content"
+              name="content"
+              placeholder="Write your blog post content..."
+              rows="6"
+              minlength="10"
+              maxlength="1000"
+              required
+            ></textarea>
+            <span id="content-error" class="error-message"></span>
+            <div class="char-count">
+              <span id="char-count">0</span>/1000 characters
+            </div>
+          </div>
+
+          <button class="submit-btn" type="submit">Publish Post</button>
+        </form>
+      </section>
+      <!-- Create a section where the list of blog posts will be displayed dynamically. -->
+      <section class="posts-section" id="posts-section">
+        <h2>Blog Posts</h2>
+        <div class="posts-list" id="posts-list">
+          <div id="empty-info" class="no-posts-message">
+            No blog posts yet. Add the first to share your thoughts!
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
