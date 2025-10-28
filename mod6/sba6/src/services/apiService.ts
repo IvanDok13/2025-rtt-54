@@ -1,10 +1,8 @@
+import { BASE_URL } from '../utils/const';
 import { APIError, handleAPIError } from '../utils/errorHandler';
 
-const BASE_URL = 'https://dummyjson.com';
+// GET all products, default 30
 
-/**
- * GET all products, default 30
- */
 export async function getProducts(limit: number = 30) {
   try {
     // send request
