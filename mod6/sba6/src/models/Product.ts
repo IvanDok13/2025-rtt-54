@@ -41,8 +41,8 @@ export default class Product {
     }
   }
 
-  getPriceWithDiscount(this: Product): number {
-    const discountAmount = (this.price * this.discountPercentage) / 100;
-    return this.price - discountAmount;
+  getPriceWithDiscount(price: number, discountPercentage: number): number {
+    const discountAmount = (price * discountPercentage) / 100;
+    return price - discountAmount;
   }
 }
