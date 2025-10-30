@@ -1,5 +1,5 @@
 import type { UserProfileCardProps } from '../../types';
-import Button from '../Button';
+import UserButton from '../UserButton';
 
 function UserProfileCard({
   user,
@@ -27,7 +27,7 @@ function UserProfileCard({
         </div>
       </div>
 
-      {onEdit && <Button text='Edit' className='w-full'></Button>}
+      {onEdit && <UserButton text='Edit' className='w-full'></UserButton>}
 
       <div>{children}</div>
     </div>
