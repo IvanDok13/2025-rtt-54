@@ -22,3 +22,11 @@ export interface UserProfileCardProps {
   onEdit?: (userId: string) => void;
   children?: React.ReactNode;
 }
+
+export interface ButtonProps {
+  type?: 'button' | 'reset' | 'submit';
+  text: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
+}
