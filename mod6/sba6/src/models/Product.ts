@@ -28,7 +28,7 @@ export default class Product {
     this.tags = tags;
   }
 
-  displayProductDetails(this: Product): void {
+  displayProductDetails(): void {
     console.log(
       `Product ID: ${this.id}; Title: ${this.title}; Price: $${this.price}; Category: ${this.category}; Discount Percentage: ${this.discountPercentage}%`
     );
@@ -43,8 +43,8 @@ export default class Product {
     }
   }
 
-  getPriceWithDiscount(price: number, discountPercentage: number): number {
-    const discountAmount = (price * discountPercentage) / 100;
-    return price - discountAmount;
+  getPriceWithDiscount(): number {
+    const discountAmount = (this.price * this.discountPercentage) / 100;
+    return this.price - discountAmount;
   }
 }
