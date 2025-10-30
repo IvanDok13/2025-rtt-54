@@ -1,6 +1,3 @@
-// Use asynchronous functions to fetch product data and display it.
-// Demonstrate error handling and OOP principles in action.
-
 import Product from './models/Product';
 import { getProducts } from './services/apiService';
 import { calculateDiscount } from './utils/discountCalculator';
