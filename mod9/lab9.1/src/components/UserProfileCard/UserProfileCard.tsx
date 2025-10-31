@@ -10,7 +10,7 @@ function UserProfileCard({
 }: UserProfileCardProps) {
   return (
     <div>
-      <div className='flex mb-5'>
+      <div className='flex mb-5 items-center justify-center gap-4'>
         <img
           src={user.avatarUrl}
           alt='user-avatar'
