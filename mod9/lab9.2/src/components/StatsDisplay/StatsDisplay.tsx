@@ -18,7 +18,7 @@ export function StatsDisplay({
         </li>
         {showReadingTime && (
           <li>
-            <strong>Estimated Reading Time:</strong> {readingTime} minutes
+            <strong>Estimated Reading Time:</strong> {readingTime} minute
             {readingTime !== 1 ? 's' : ''}
           </li>
         )}
