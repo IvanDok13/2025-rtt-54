@@ -20,3 +20,10 @@ export interface CharacterCounterProps {
   maxWords?: number;
   targetReadingTime?: number; // in minutes
 }
+
+export interface ProgressIndicatorProps {
+  currentCount?: number;
+  goal?: number;
+  onGoalChange: (newGoal: number) => void;
+  type?: string;
+}
