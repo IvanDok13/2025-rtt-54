@@ -1,3 +1,4 @@
+import { getBorderCountryNames } from '../service/service.js';
 import { formatCapital, formatPopulation } from './utils.js';
 
 export function createCountryCard(country) {
@@ -22,8 +23,10 @@ export function createCountryCard(country) {
 }
 
 // Render country details
-export function renderCountryDetails(country) {
+export async function renderCountryDetails(country) {
   const detailsDiv = document.getElementById('country-details');
+
+  const borderNames = await getBorderCountryNames(country.borders);
 
   const detailsHTML = `
         <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="country-flag">
@@ -55,6 +58,19 @@ export function renderCountryDetails(country) {
                     : 'N/A'
                 }
             </div>
+            <div class="detail-item">
+            <span class="detail-label">Borders: </span>
+            ${
+              borderNames.length > 0
+                ? borderNames
+                    .map(
+                      name =>
+                        `<a href="./details.html?name=${encodeURIComponent(name)}" class="border-link">${name}</a>`
+                    )
+                    .join(', ')
+                : 'N/A'
+            }
+            
         </div>
     `;
 
