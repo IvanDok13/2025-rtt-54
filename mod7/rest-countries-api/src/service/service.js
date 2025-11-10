@@ -21,9 +21,7 @@ export async function fetchCountries() {
 
 export async function fetchCountryDetails(countryName) {
   try {
-    const response = await fetch(
-      `https://restcountries.com/v3.1/name/${countryName}?fullText=true`
-    );
+    const response = await fetch(`${API_URL}name/${countryName}?fullText=true`);
 
     if (!response.ok) {
       throw new Error('Country not found');
@@ -35,4 +33,30 @@ export async function fetchCountryDetails(countryName) {
     console.error('Error fetching country details:', error);
     throw error;
   }
+}
+
+export async function getCountryNameByCode(countryCode) {
+  try {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/alpha/${countryCode}`
+    );
+
+    if (!response.ok) {
+      throw new Error('Border country not found');
+    }
+
+    const country = await response.json();
+    return country[0].name.common;
+  } catch (error) {
+    console.error('Error fetching border country:', error);
+    return countryCode;
+  }
+}
+
+export async function getBorderCountryNames(borderCodes) {
+  if (!borderCodes || borderCodes.length === 0) return [];
+
+  const borderPromises = borderCodes.map(code => getCountryNameByCode(code));
+  const borderNames = await Promise.all(borderPromises);
+  return borderNames;
 }
