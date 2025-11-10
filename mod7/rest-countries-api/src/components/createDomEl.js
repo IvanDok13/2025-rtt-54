@@ -20,3 +20,43 @@ export function createCountryCard(country) {
   </a>
 </div>`;
 }
+
+// Render country details
+export function renderCountryDetails(country) {
+  const detailsDiv = document.getElementById('country-details');
+
+  const detailsHTML = `
+        <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="country-flag">
+        <h2>${country.name.common}</h2>
+        <p><strong>Official Name:</strong> ${country.name.official}</p>
+        
+        <div class="details-grid">
+            <div class="detail-item">
+                <span class="detail-label">Population:</span> ${formatPopulation(country.population)}
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Region:</span> ${country.region}
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Subregion:</span> ${country.subregion || 'N/A'}
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Capital:</span> ${formatCapital(country.capital)}
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Languages:</span> ${country.languages ? Object.values(country.languages).join(', ') : 'N/A'}
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Currencies:</span> ${
+                  country.currencies
+                    ? Object.values(country.currencies)
+                        .map(c => c.name)
+                        .join(', ')
+                    : 'N/A'
+                }
+            </div>
+        </div>
+    `;
+
+  detailsDiv.innerHTML = detailsHTML;
+}
