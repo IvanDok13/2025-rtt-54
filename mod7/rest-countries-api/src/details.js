@@ -10,7 +10,6 @@ function getCountryNameFromURL() {
 // Load country details
 async function loadCountryDetails() {
   const countryName = getCountryNameFromURL();
-  console.log(getCountryNameFromURL());
 
   if (!countryName) {
     document.getElementById('country-details').innerHTML =
