@@ -1,47 +1,66 @@
-const countriesDiv = document.getElementById('countries');
-const cardTemplate = document.getElementById('card-template');
+import { createCountryCard } from './components/createDomEl.js';
+import { showError } from './components/error.js';
+import {
+  countriesDiv,
+  errorDiv,
+  loadingDiv,
+} from './components/getDomElements.js';
+import { setupSearch } from './components/searchBar.js';
+import { fetchCountries } from './service/service.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const res = await fetch(
-    'https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,language,currency,subregion'
-  );
+// Render countries to the DOM
+function renderCountries(countries) {
+  const countriesHTML = countries.map(createCountryCard).join('');
+  countriesDiv.innerHTML = countriesHTML;
+  loadingDiv.style.display = 'none';
+  errorDiv.style.display = 'none';
+  countriesDiv.style.display = 'grid';
+}
 
-  if (!res.ok) {
-    throw new Error('Error fetching data');
+// Main function to load and display countries
+async function loadCountries() {
+  try {
+    const countries = await fetchCountries();
+    renderCountries(countries);
+  } catch (error) {
+    showError(error.message);
   }
+}
 
-  const data = await res.json();
-  console.log(data);
+// Handle search input
+export async function handleSearch(event) {
+  const searchTerm = event.target.value.toLowerCase().trim();
 
-  data.forEach(country => {
-    console.log(Array.isArray(country.capital));
+  try {
+    const allCountries = await fetchCountries();
+    const filteredCountries = allCountries.filter(
+      country =>
+        country.name.common.toLowerCase().includes(searchTerm) ||
+        country.region.toLowerCase().includes(searchTerm)
+    );
+    renderCountries(filteredCountries);
+  } catch (error) {
+    showError(error.message);
+  }
+}
 
-    // Clone the card template
-    const cardTemplateClone = cardTemplate.content.cloneNode(true);
+// Initialize the app when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+  loadCountries();
+  setupSearch();
+  const searchInput = document.getElementById('search-input');
+  searchInput.addEventListener('input', handleSearch);
 
-    // add the page path to the href
-    cardTemplateClone.querySelector('a').href =
-      './src/pages/details.html?name=' + country.name.common;
-
-    // add the source and alt text to the image
-    cardTemplateClone.querySelector('img').src = country.flags.png;
-    cardTemplateClone.querySelector('img').alt = country.name.common;
-
-    // add country name to the h2
-    cardTemplateClone.querySelector('h2').textContent = country.name.common;
-
-    // add population
-    cardTemplateClone.querySelector('#population').textContent =
-      `Population: ${country.population}`;
-
-    // add region
-    cardTemplateClone.querySelector('#region').textContent =
-      `Region: ${country.region}`;
-
-    // add capital
-    cardTemplateClone.querySelector('#capital').textContent =
-      `Capital: ${country.capital}`;
-
-    countriesDiv.appendChild(cardTemplateClone);
+  const darkModeButton = document.querySelector('.theme-button');
+  darkModeButton.addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      darkModeButton.textContent = 'Dark Mode';
+    } else {
+      darkModeButton.textContent = 'Light Mode';
+    }
   });
 });
+
+// Make loadCountries available globally for the retry button
+window.loadCountries = loadCountries;
