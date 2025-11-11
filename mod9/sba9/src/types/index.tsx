@@ -11,3 +11,10 @@ export interface Task {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface TaskItemProps {
+  task: Task;
+  onUpdateStatus: (id: string, status: TaskStatus) => void;
+  onDelete: (id: string) => void;
+  onEdit: (task: Task) => void;
+}
