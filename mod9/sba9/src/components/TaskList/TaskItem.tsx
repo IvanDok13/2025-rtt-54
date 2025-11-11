@@ -7,7 +7,10 @@ export const TaskItem: React.FC<TaskItemProps> = ({
   onEdit,
 }) => {
   return (
-    <li key={task.id} className='task-item'>
+    <li
+      key={task.id}
+      className='p-4 rounded-2xl border bg-white/70 dark:bg-neutral-900/70 dark:border-neutral-800 flex flex-col sm:flex-row sm:items-center gap-3 shadow-sm'
+    >
       <div>
         <h3>{task.title}</h3>
         {task.description && <p>{task.description}</p>}
