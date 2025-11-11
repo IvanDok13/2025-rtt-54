@@ -12,9 +12,16 @@ export interface Task {
   updatedAt: string;
 }
 
-export interface TaskItemProps {
-  task: Task;
+export interface TaskActionsProps {
   onUpdateStatus: (id: string, status: TaskStatus) => void;
   onDelete: (id: string) => void;
   onEdit: (task: Task) => void;
+}
+
+export interface TaskItemProps extends TaskActionsProps {
+  task: Task;
+}
+
+export interface TaskListProps extends TaskActionsProps {
+  tasks: Task[];
 }
