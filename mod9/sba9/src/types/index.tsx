@@ -34,3 +34,15 @@ export interface SearchBarProps {
 export interface StatsProps {
   tasks: Task[];
 }
+
+export interface FormDataShape {
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  dueDate?: string;
+}
+
+export interface TaskFormProps {
+  onSubmit: (data: FormDataShape) => void;
+}
