@@ -1,11 +1,11 @@
 import type { TaskItemProps, TaskStatus } from '../../types/index';
 
-export const TaskItem: React.FC<TaskItemProps> = ({
+export function TaskItem({
   task,
   onUpdateStatus,
   onDelete,
   onEdit,
-}) => {
+}: TaskItemProps) {
   return (
     <li
       key={task.id}
@@ -31,4 +31,4 @@ export const TaskItem: React.FC<TaskItemProps> = ({
       </div>
     </li>
   );
-};
+}

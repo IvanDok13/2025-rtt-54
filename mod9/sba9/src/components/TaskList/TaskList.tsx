@@ -1,18 +1,18 @@
 import type { TaskListProps } from '../../types/index';
 import { TaskItem } from './TaskItem';
 
-export const TaskList: React.FC<TaskListProps> = ({
+export function TaskList({
   tasks,
   onUpdateStatus,
   onDelete,
   onEdit,
-}) => {
+}: TaskListProps) {
   return (
     <ul className='space-y-2'>
-      {tasks.map(t => (
+      {tasks.map(task => (
         <TaskItem
-          key={t.id}
-          task={t}
+          key={task.id}
+          task={task}
           onUpdateStatus={onUpdateStatus}
           onDelete={onDelete}
           onEdit={onEdit}
@@ -20,4 +20,4 @@ export const TaskList: React.FC<TaskListProps> = ({
       ))}
     </ul>
   );
-};
+}
