@@ -46,3 +46,17 @@ export interface FormDataShape {
 export interface TaskFormProps {
   onSubmit: (data: FormDataShape) => void;
 }
+
+export interface FilterOptions {
+  query: string;
+  status: TaskStatus | 'all';
+  priority: TaskPriority | 'all';
+  sortBy: 'createdAt' | 'updatedAt' | 'dueDate' | 'priority' | 'title';
+  sortDir: 'asc' | 'desc';
+}
+
+export interface TaskFilterProps {
+  filters: FilterOptions;
+  onChange: (filters: Partial<FilterOptions>) => void;
+  onReset: () => void;
+}
