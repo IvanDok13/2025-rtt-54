@@ -30,3 +30,7 @@ export interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
 }
+
+export interface StatsProps {
+  tasks: Task[];
+}
