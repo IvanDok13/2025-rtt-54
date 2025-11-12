@@ -60,3 +60,13 @@ export interface TaskFilterProps {
   onChange: (filters: Partial<FilterOptions>) => void;
   onReset: () => void;
 }
+
+export interface MainProps {
+  tasks: Task[];
+  filters: FilterOptions;
+  onAdd: (data: FormDataShape) => void;
+  onUpdate: (id: string, patch: Partial<Task>) => void;
+  onDelete: (id: string) => void;
+  onFilterChange: (filters: Partial<FilterOptions>) => void;
+  onResetFilters: () => void;
+}
