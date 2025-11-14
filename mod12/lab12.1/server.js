@@ -15,7 +15,7 @@ const PORT = 3000;
 // Create a route handler for GET requests to the root URL (/). When this route is requested, it should send the index.html file from your public directory.
 app.get('/', (req, res) => {
   console.log(req.url);
-  res.send(File(path.join(__dirname, 'public/index.html')));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 // Create another route handler for GET requests to /contact. This should send the contact.html file.
