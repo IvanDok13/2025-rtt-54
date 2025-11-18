@@ -8,3 +8,9 @@ export interface Blog {
 export interface BlogPageProps {
   blogs: Blog[];
 }
+
+export interface AuthContextType {
+  isAuth: boolean;
+  login: () => void;
+  logout: () => void;
+}
