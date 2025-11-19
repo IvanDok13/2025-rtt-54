@@ -24,11 +24,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": [
-    "src",
-    "../1/components",
-    "../1/context",
-    "../1/lib",
-    "../1/pages"
-  ]
+  "include": ["src", "src/components", "src/context", "src/lib", "src/pages"]
 }
