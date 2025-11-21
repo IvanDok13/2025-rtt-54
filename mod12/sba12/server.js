@@ -14,7 +14,7 @@ app.use(express.json());
 // ============= Routes ===========
 
 app.use('/api/user', require('./routes/userRoutes'));
-app.use('/api/movie', require('./routes/movieRoutes'));
+app.use('/api/movies', require('./routes/movieRoutes'));
 
 app.get('/', (req, res) => {
   res.send('Welcome to my API!');

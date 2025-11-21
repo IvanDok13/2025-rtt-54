@@ -1,18 +1,19 @@
 const express = require('express');
 
+const {
+  searchMovies,
+  getMovieDetails,
+} = require('../controllers/movieController');
+
 const movieRouter = express.Router();
 
 // Routes
 movieRouter.get('/', (req, res) => {
-  res.send('Sending all movies...');
+  res.send('Sending all movies!');
 });
 
-movieRouter.het('/search', (req, res) => {
-  res.send('Searching for movies...');
-});
+movieRouter.get('/search', searchMovies);
 
-movieRouter.get('/:id', (req, res) => {
-  res.send(`Sending data for movie with id: ${req.params.id}`);
-});
+movieRouter.get('/:id', getMovieDetails);
 
 module.exports = movieRouter;
