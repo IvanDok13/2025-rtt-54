@@ -7,7 +7,9 @@ export function CategoryCard({ category }: CategoryCardProps) {
       to={`/category/${category.strCategory}`}
       className='block bg-white rounded-xl p-3 text-center no-underline text-gray-800 shadow-md hover:-translate-y-1 transition-transform duration-200'
     >
-      <h3>{category.strCategory}</h3>
+      <h3 className='font-semibold text-lg mb-3 truncate'>
+        {category.strCategory}
+      </h3>
 
       <img
         src={category.strCategoryThumb}
