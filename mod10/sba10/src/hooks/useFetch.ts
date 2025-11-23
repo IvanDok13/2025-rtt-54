@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import type { Category } from '../types';
+import { useEffect, useState, type DependencyList } from 'react';
 
-export function useFetch(
-  fetcher: string | (() => Promise<Category>),
-  dependencies = []
+export function useFetch<T>(
+  fetcher: string | (() => Promise<T>),
+  dependencies: DependencyList = []
 ) {
-  const [data, setData] = useState<Category | null>(null);
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -25,12 +24,10 @@ export function useFetch(
         const result = await fetchFunction();
         if (!ignore) setData(result);
       } catch (err) {
-        {
-          if (err instanceof Error) {
-            setError(err.message);
-          } else {
-            setError('An unexpected error occurred');
-          }
+        if (err instanceof Error) {
+          if (!ignore) setError(err.message);
+        } else {
+          if (!ignore) setError('Unexpected error');
         }
       } finally {
         if (!ignore) setLoading(false);
@@ -50,7 +47,9 @@ export function useFetch(
 
     fetchFunction()
       .then(result => setData(result))
-      .catch(err => setError(err.message))
+      .catch(err =>
+        setError(err instanceof Error ? err.message : 'Unexpected error')
+      )
       .finally(() => setLoading(false));
   };
 
