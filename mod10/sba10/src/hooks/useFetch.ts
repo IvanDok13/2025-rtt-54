@@ -24,8 +24,14 @@ export function useFetch(
       try {
         const result = await fetchFunction();
         if (!ignore) setData(result);
-      } catch (err: any) {
-        if (!ignore) setError(err.message);
+      } catch (err) {
+        {
+          if (err instanceof Error) {
+            setError(err.message);
+          } else {
+            setError('An unexpected error occurred');
+          }
+        }
       } finally {
         if (!ignore) setLoading(false);
       }
