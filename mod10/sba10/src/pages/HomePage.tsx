@@ -7,7 +7,10 @@ import { fetchCategories } from '../services/recipeApi';
 import type { Category } from '../types';
 
 export function HomePage() {
-  const { data, loading, error } = useFetch(() => fetchCategories(), []);
+  const { data, loading, error } = useFetch<Category[]>(
+    () => fetchCategories(),
+    []
+  );
 
   if (loading) return <Spinner />;
   if (error) return <ErrorMessage message={error} />;
