@@ -1,10 +1,14 @@
-import './App.css';
+import { Outlet } from 'react-router-dom';
+import { NavBar } from './components/NavBar';
 
-function App() {
+export default function App() {
   return (
-    <>
-      <h1>React Router App</h1>
-    </>
+    <div>
+      <NavBar />
+
+      <main>
+        <Outlet />
+      </main>
+    </div>
   );
 }
-export default App;
