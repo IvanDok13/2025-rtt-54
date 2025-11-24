@@ -1,8 +1,17 @@
+import { useFavorites } from '../hooks/useFavorites';
 import type { RecipeCardProps } from '../types';
 import { extractIngredients } from '../utils/extractIngredients';
 
 export function RecipeDetailsCard({ recipe }: RecipeCardProps) {
   const ingredients = extractIngredients(recipe);
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+
+  const favorite = isFavorite(recipe.idMeal);
+
+  const toggleFavorite = () => {
+    if (favorite) removeFavorite(recipe.idMeal);
+    else addFavorite(recipe);
+  };
 
   return (
     <div className='max-w-[900px] bg-white rounded-xl p-6 shadow-lg border border-gray-200'>
@@ -11,6 +20,15 @@ export function RecipeDetailsCard({ recipe }: RecipeCardProps) {
         alt={recipe.strMeal}
         className=' rounded-xl mb-4 shadow-sm flex justify-center m-auto max-w-[400px]'
       />
+
+      <button
+        onClick={toggleFavorite}
+        className={`px-5 py-2 rounded-lg mb-4 transition font-medium 
+          ${favorite ? 'bg-red-500 text-white' : 'bg-green-500 text-white'}`}
+      >
+        {favorite ? 'Remove from Favorites' : 'Add to Favorites'}
+      </button>
+
       <div className='text-gray-600 text-sm mb-4 flex flex-wrap gap-3 justify-center'>
         {recipe.strArea && (
           <span className='px-3 py-1 bg-gray-100 rounded-full text-xs'>
