@@ -4,7 +4,7 @@ import type { RecipeCardProps } from '../types';
 export function RecipeCard({ recipe }: RecipeCardProps) {
   return (
     <Link
-      to={`/recipe/${recipe.strMeal}`}
+      to={`/recipe/${recipe.idMeal}`}
       className='block bg-white rounded-xl p-3 text-center no-underline text-gray-800 shadow-md hover:-translate-y-1 transition-transform duration-200'
     >
       <h3 className='font-semibold text-lg mb-3 truncate'>{recipe.strMeal}</h3>
