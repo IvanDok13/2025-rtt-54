@@ -14,6 +14,8 @@ export interface Recipe {
   strMeal: string;
   strMealThumb: string;
   strInstructions: string;
+  strArea: string;
+  strCategory: string;
 }
 
 export interface RecipeCardProps {
