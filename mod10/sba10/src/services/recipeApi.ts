@@ -15,3 +15,8 @@ export async function fetchRecipeDetails(id: string) {
   const data = await apiClient(`${BASE_URL}/lookup.php?i=${id}`);
   return data.meals?.[0] || [];
 }
+
+export async function fetchRecipesByName(name: string) {
+  const data = await apiClient(`${BASE_URL}/search.php?s=${name}`);
+  return data.meals || [];
+}
