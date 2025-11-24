@@ -29,3 +29,10 @@ export interface EmptyStateProps {
 export interface ErrorMessageProps {
   message?: string;
 }
+
+export interface FavoritesContextValue {
+  favorites: Recipe[];
+  addFavorite: (recipe: Recipe) => void;
+  removeFavorite: (id: string) => void;
+  isFavorite: (id: string) => boolean;
+}
