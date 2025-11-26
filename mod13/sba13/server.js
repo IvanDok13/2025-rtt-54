@@ -1,6 +1,5 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const bookRoutes = require('./routes/bookRoutes');
 const { connectDB } = require('./db/connection');
 const morgan = require('morgan');
 
