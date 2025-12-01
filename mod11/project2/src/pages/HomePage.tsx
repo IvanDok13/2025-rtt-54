@@ -80,7 +80,7 @@ export function HomePage() {
         </form>
 
         {error && <p className='mt-3 text-sm text-red-200'>{error}</p>}
-        <div className='absolute left-1/2 transform -translate-x-1/2 top-[75%] w-full max-w-5xl'>
+        <div className='absolute left-1/2 transform -translate-x-1/2 top-[75%] w-full max-w-5xl z-10'>
           <IpInfoCard data={data} loading={loading} />
         </div>
       </header>
