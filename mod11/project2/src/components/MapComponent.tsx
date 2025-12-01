@@ -26,8 +26,6 @@ export const MapView: React.FC<MapViewProps> = ({ position, ip }) => {
       map: mapRef.current,
       position: { lat: position[0], lng: position[1] },
       title: ip,
-      // Optional custom content:
-      // content: createCustomDot(),
     });
 
     return () => {
@@ -53,3 +51,6 @@ export const MapView: React.FC<MapViewProps> = ({ position, ip }) => {
     />
   );
 };
+function createCustomDot() {
+  throw new Error('Function not implemented.');
+}
