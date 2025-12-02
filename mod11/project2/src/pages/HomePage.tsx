@@ -20,7 +20,7 @@ export function HomePage() {
       setLoading(true);
       setError('');
 
-      const params = { apiKey: API_KEY };
+      const params: Record<string, string> = { apiKey: API_KEY };
 
       if (value.trim()) {
         const ipRegex =
@@ -48,7 +48,7 @@ export function HomePage() {
     fetchIpData();
   }, []);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     fetchIpData(query);
   };
