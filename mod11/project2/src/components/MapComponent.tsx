@@ -12,12 +12,15 @@ export const MapView: React.FC<MapViewProps> = ({ position, ip }) => {
     libraries: ['marker'],
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>(null);
 
   useEffect(() => {
     if (!isLoaded || !mapRef.current) return;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const w = window as any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const google = w.google as any;
 
     if (!google?.maps?.marker?.AdvancedMarkerElement) return;
@@ -46,11 +49,12 @@ export const MapView: React.FC<MapViewProps> = ({ position, ip }) => {
       zoom={13}
       center={{ lat: position[0], lng: position[1] }}
       mapContainerClassName='w-full h-[500px]'
-      mapId={import.meta.env.VITE_GOOGLE_MAP_ID}
-      onLoad={map => (mapRef.current = map)}
+      options={{
+        mapId: import.meta.env.VITE_GOOGLE_MAP_ID,
+      }}
+      onLoad={map => {
+        mapRef.current = map;
+      }}
     />
   );
 };
-function createCustomDot() {
-  throw new Error('Function not implemented.');
-}
