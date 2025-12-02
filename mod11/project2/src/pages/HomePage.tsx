@@ -44,7 +44,6 @@ export function HomePage() {
   };
 
   useEffect(() => {
-    // Initial load: use caller IP
     fetchIpData();
   }, []);
 
