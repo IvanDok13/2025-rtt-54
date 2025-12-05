@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 const secret = process.env.JWT_SECRET;
-const expiration = "2h";
+const expiration = '2h';
 
 function authMiddleware(req, res, next) {
   // Allows token to be sent via req.body, req.query, or headers
@@ -9,7 +9,7 @@ function authMiddleware(req, res, next) {
 
   // We split the token string into an array and return actual token
   if (req.headers.authorization) {
-    token = token.split(" ").pop().trim();
+    token = token.split(' ').pop().trim();
   }
 
   if (!token) {
@@ -21,7 +21,7 @@ function authMiddleware(req, res, next) {
     const { data } = jwt.verify(token, secret, { maxAge: expiration });
     req.user = data;
   } catch {
-    console.log("Invalid token");
+    console.log('Invalid token');
   }
 
   // Return the request object so it can be passed to the resolver as `context`
@@ -29,9 +29,8 @@ function authMiddleware(req, res, next) {
   next();
 }
 
-
-
 function adminOnly(req, res, next) {
+  console.log(req.user);
   if (req.user && req.user.role === 'admin') {
     next(); // User is an admin, proceed
   } else {
@@ -41,5 +40,5 @@ function adminOnly(req, res, next) {
 
 module.exports = {
   authMiddleware,
-  adminOnly
+  adminOnly,
 };
