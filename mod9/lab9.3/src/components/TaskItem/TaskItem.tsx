@@ -1,15 +1,7 @@
 import { useState } from 'react';
-import type { Task, TaskStatus } from '../TaskList/TaskList';
-// types/index.ts
-export interface TaskItemProps {
-  task: Task;
-  onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
-  onDelete: (taskId: string) => void;
-}
+import type { Priority, TaskItemProps, TaskStatus } from '../../types/index';
 
-type Priority = 'low' | 'medium' | 'high';
-
-function TaskItem({ task, onStatusChange }: TaskItemProps) {
+function TaskItem({ task, onStatusChange, onDelete }: TaskItemProps) {
   const [currentStatus, setCurrentStatus] = useState(task.status);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -29,36 +21,43 @@ function TaskItem({ task, onStatusChange }: TaskItemProps) {
     high: 'text-red-500',
   };
   return (
-    <div className='mb-5  grid grid-cols-2'>
+    <div
+      key={task.id}
+      className='mb-5 grid grid-cols-2 bg-zinc-800 p-5 rounded-lg gap-2 center'
+    >
       <div className='flex flex-col gap-2'>
         <div className='text-xl font-semibold'>{task.title}</div>
-        <div>{task.description}</div>
-        <div>
-          Status:{' '}
-          <span className={statusStyles[task.status]}>{task.status}</span>
-        </div>
-        <div>
+        <div className='text-sm'>{task.description}</div>
+        <div className='text-sm opacity-70'>
           Priority:{' '}
           <span className={priorityStyles[task.priority]}>{task.priority}</span>
         </div>
-        <div>Due Date: {task.dueDate}</div>
+        <div className='text-sm opacity-40'>Due Date: {task.dueDate}</div>
       </div>
 
-      <select
-        value={currentStatus}
-        onChange={handleChange}
-        className={`ml-auto bg-zinc-900 h-10 ${statusStyles[currentStatus]}`}
-      >
-        <option value='pending'>
-          <span>Pending</span>
-        </option>
-        <option value='in-progress'>
-          <span>In Progress</span>
-        </option>
-        <option value='completed'>
-          <span>Completed</span>
-        </option>
-      </select>
+      <div className='flex flex-col gap-2'>
+        <select
+          value={currentStatus}
+          onChange={handleChange}
+          className={`ml-auto bg-zinc-900 h-10 px-3  rounded  ${statusStyles[currentStatus]}`}
+        >
+          <option value='pending'>Pending</option>
+          <option value='in-progress'>In Progress</option>
+          <option value='completed'>Completed</option>
+        </select>
+      </div>
+
+      <div className='flex gap-2'>
+        <button className='bg-zinc-900 hover:bg-zinc-700 p-2 rounded'>
+          Edit
+        </button>
+        <button
+          onClick={() => onDelete(task.id)}
+          className='bg-zinc-900 hover:bg-zinc-700 p-2 rounded'
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

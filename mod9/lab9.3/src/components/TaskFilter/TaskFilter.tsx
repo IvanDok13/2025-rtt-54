@@ -1,13 +1,5 @@
-// types/index.ts
 import { useState } from 'react';
-import type { TaskStatus } from '../TaskList/TaskList';
-
-export interface TaskFilterProps {
-  onFilterChange: (filters: {
-    status?: TaskStatus;
-    priority?: 'low' | 'medium' | 'high';
-  }) => void;
-}
+import type { TaskFilterProps } from '../../types';
 
 function TaskFilter({ onFilterChange }: TaskFilterProps) {
   const [filters, setFilters] = useState({
