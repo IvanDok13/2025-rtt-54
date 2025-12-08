@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import './App.css';
-import TaskList, {
-  type Task,
-  type TaskStatus,
-} from './components/TaskList/TaskList';
+import TaskList from './components/TaskList/TaskList';
+import type { Task, TaskStatus } from './types';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([
@@ -52,7 +49,10 @@ function App() {
     },
   ]);
 
-  const onDelete = () => {};
+  const onDelete = (id: string) => {
+    const newTask = tasks.filter(task => task.id !== id);
+    setTasks(newTask);
+  };
 
   const onStatusChange = (taskId: string, newStatus: TaskStatus) => {
     setTasks(prevTasks =>
